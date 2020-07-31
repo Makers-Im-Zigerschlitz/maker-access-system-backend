@@ -1,0 +1,35 @@
+{
+  "name": "maker-access-system-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "http-errors": "~1.6.3",
+    "memory": "0.0.3",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pug": "2.0.0-beta11"
+  },
+  "description": "MAS Backend",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Makers-Im-Zigerschlitz/maker-access-system-backend.git"
+  },
+  "author": "n15c",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Makers-Im-Zigerschlitz/maker-access-system-backend/issues"
+  },
+  "homepage": "https://github.com/Makers-Im-Zigerschlitz/maker-access-system-backend#readme"
+}
