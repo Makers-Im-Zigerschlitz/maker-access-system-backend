@@ -6,9 +6,4 @@ var passport = require('passport');
 var authRouter = require('./auth');
 router.use('/auth', authRouter);
 
-
-router.get('/', function(req, res, next) {
-      res.redirect("https://github.com/Makers-Im-Zigerschlitz/maker-access-system-backend");
-});
-
 module.exports = router;
