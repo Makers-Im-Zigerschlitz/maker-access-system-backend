@@ -8,7 +8,7 @@
 	{
 		"host": "localhost",
 		"user": "mas",
-		"password": "123456789",
+		"password": "mas",
 		"database": "mas"
 	}
 }

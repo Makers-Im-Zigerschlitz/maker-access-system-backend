@@ -16,7 +16,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('../maker-access-system-frontend/build'));
 app.use(session({ secret: config.get('systemConfig.sessionSecret'), cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
 app.use(passport.initialize());
 app.use(passport.session());
