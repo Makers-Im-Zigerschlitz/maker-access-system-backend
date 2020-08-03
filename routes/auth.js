@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var sqlconn = require('../lib/mysql').getConn();
+var seclib = require('../lib/securityLib')
+var bcrypt = require('bcrypt');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -12,7 +14,6 @@ passport.use(new LocalStrategy(
   function(req, username, password, done) {
     sqlconn.query("SELECT * FROM `tblUsers` WHERE `username` = '" + username + "'",function(err,rows){
       if (err){
-        console.log(err);
         return done(err);
       }
       if (!rows.length) {
@@ -23,6 +24,11 @@ passport.use(new LocalStrategy(
       if (!( rows[0].password == password)){
         return done(null, false);
       }
+      // console.log("Pass: " + password + " Hash: " + rows[0].password);
+      // console.log(bcrypt.compareSync(password, rows[0].password));
+      // if(!bcrypt.compareSync(password, rows[0].password)){
+      //   return done(null, false);
+      // }
         // all is well, return successful user
         return done(null, rows[0]);
       });
@@ -42,7 +48,6 @@ passport.deserializeUser(function(id, done) {
 router.post('/dologin', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return res.send({successful: false}) }
-    console.log(info);
     if (!user) { return res.send({successful: false}); }
     req.logIn(user, function(err) {
       if (err) { return res.send({successful: false}); }

@@ -1,0 +1,14 @@
+{
+	"systemConfig":
+	{
+		"sessionSecret": "PleaseSetThisSecret",
+		"passwordSalt": "thisisthepwsalt"
+	},
+	"dbConfig":
+	{
+		"host": "localhost",
+		"user": "mas",
+		"password": "123456789",
+		"database": "mas"
+	}
+}
