@@ -69,4 +69,20 @@ router.get('/me', function(req, res, next) {
   }
 });
 
+router.post('/me/setpass', function(req, res, next) {
+  if (req.isAuthenticated()) {
+    if (req.body.password) {
+      var hash = bcrypt.hashSync(req.body.password, 8);
+      sqlconn.query("UPDATE `tblUsers` SET `password` = '" + hash + "'WHERE `username` = '" + req.user.username + "'");
+      res.sendStatus(200);
+    }
+    else {
+      res.sendStatus(400);
+    }
+  }
+  else {
+    res.sendStatus(401);
+  }
+});
+
 module.exports = router;
