@@ -13,21 +13,19 @@ passport.use(new LocalStrategy(
   function(req, username, password, done) {
     sqlconn.query("SELECT * FROM `tblUsers` WHERE `username` = '" + username + "'",function(err,rows){
       if (err){
+        console.log(err);
         return done(err);
       }
       if (!rows.length) {
         return done(null, false);
       }
-
       // if the user is found but the password is wrong
-      if (!( rows[0].password == password)){
-        return done(null, false);
-      }
-      // console.log("Pass: " + password + " Hash: " + rows[0].password);
-      // console.log(bcrypt.compareSync(password, rows[0].password));
-      // if(!bcrypt.compareSync(password, rows[0].password)){
+      // if (!( rows[0].password == password)){
       //   return done(null, false);
       // }
+      if(!bcrypt.compareSync(password, rows[0].password)){
+        return done(null, false);
+      }
         // all is well, return successful user
         return done(null, rows[0]);
       });

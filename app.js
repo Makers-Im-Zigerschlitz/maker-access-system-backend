@@ -5,20 +5,31 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
 var session = require('express-session');
-
 const config = require('config');
 
+// Setting up session store
+var MySQLStore = require('express-mysql-session')(session);
+var sessionStore = new MySQLStore(config.get('dbConfig'));
+
+// Setting up routes
 var indexRouter = require('./routes/index');
 
+// Setting up express
 var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('../maker-access-system-frontend/build'));
-app.use(session({ secret: config.get('systemConfig.sessionSecret'), cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
+// Setting up session for express
+app.use(session({
+  secret: config.get('systemConfig.sessionSecret'),
+  store: sessionStore,
+  cookie: { maxAge: 60000 },
+  resave: false,
+  saveUninitialized: false
+}))
 app.use(passport.initialize());
 app.use(passport.session());
 
