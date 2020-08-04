@@ -13,7 +13,6 @@ passport.use(new LocalStrategy(
   function(req, username, password, done) {
     sqlconn.query("SELECT * FROM `tblUsers` WHERE `username` = '" + username + "'",function(err,rows){
       if (err){
-        console.log(err);
         return done(err);
       }
       if (!rows.length) {
@@ -32,22 +31,24 @@ passport.use(new LocalStrategy(
 }));
 
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user.uid);
 });
 
 // used to deserialize the user
 passport.deserializeUser(function(id, done) {
-  sqlconn.query("select * from tblUsers where id = "+id,function(err,rows){
+  sqlconn.query("select * from tblUsers where uid = "+uid,function(err,rows){
     done(err, rows[0]);
   });
 });
 
 router.post('/dologin', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
-    if (err) { return res.send({successful: false}) }
-    if (!user) { return res.send({successful: false}); }
+    if (err) { return res.send({successful: false})}
+    if (!user) { return res.send({successful: false});}
     req.logIn(user, function(err) {
-      if (err) { return res.send({successful: false}); }
+      if (err) {
+        return res.send({successful: false});
+      }
       return res.send({successful: true});
     });
   })(req, res, next);
