@@ -35,7 +35,7 @@ passport.serializeUser(function(user, done) {
 });
 
 // used to deserialize the user
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function(uid, done) {
   sqlconn.query("select * from tblUsers where uid = "+uid,function(err,rows){
     done(err, rows[0]);
   });
