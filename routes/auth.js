@@ -75,10 +75,10 @@ router.post('/me/setpass', function(req, res, next) {
     if (req.body.password) {
       var hash = bcrypt.hashSync(req.body.password, 8);
       sqlconn.query("UPDATE `tblUsers` SET `password` = '" + hash + "'WHERE `username` = '" + req.user.username + "'");
-      res.sendStatus(200);
+      res.send({successful: true});
     }
     else {
-      res.sendStatus(400);
+      res.send({successful: false});
     }
   }
   else {
