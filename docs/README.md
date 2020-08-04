@@ -18,7 +18,7 @@ issued by the backend.
 ### Current User related
 
 Each endpoint manipulates or displays information related to the User whose
-Token is provided with the request:
+session is provided with the request:
 
 * [Get user info](auth/me/get.md) : `GET /auth/me/`
 * [Set password](auth/me/post-setpass.md) : `POST /auth/me/setpass`
