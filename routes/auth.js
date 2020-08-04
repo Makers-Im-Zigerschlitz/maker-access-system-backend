@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var sqlconn = require('../lib/mysql').getConn();
-var seclib = require('../lib/securityLib')
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;

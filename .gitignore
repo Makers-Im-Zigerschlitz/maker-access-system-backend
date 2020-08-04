@@ -62,3 +62,4 @@ typings/
 
 #Dev Config
 config/local.json
+config/production.json
