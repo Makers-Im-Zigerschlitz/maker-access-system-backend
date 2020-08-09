@@ -38,7 +38,7 @@ app.use('/', indexRouter);
 
 //Respond to all unknown Routes with React, in case the routes are from the Frontend
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'../maker-access-system-frontend/build/index.html'));
+    res.sendFile(path.join(__dirname+'/../maker-access-system-frontend/build/index.html'));
 });
 
 // catch 404 and forward to error handler
