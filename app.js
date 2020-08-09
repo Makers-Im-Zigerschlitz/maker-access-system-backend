@@ -35,6 +35,11 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 
+//Respond to all unknown Routes with React, in case the routes are from the Frontend
+app.get('*', (req,res) =>{
+    res.sendFile('../maker-access-system-frontend/build'));
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
