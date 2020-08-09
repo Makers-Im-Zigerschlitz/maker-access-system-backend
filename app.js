@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('../maker-access-system-frontend/build'));
+
 // Setting up session for express
 app.use(session({
   secret: config.get('systemConfig.sessionSecret'),
@@ -37,7 +38,7 @@ app.use('/', indexRouter);
 
 //Respond to all unknown Routes with React, in case the routes are from the Frontend
 app.get('*', (req,res) =>{
-    res.sendFile('../maker-access-system-frontend/build/index.html'));
+    res.sendFile('../maker-access-system-frontend/build/index.html');
 });
 
 // catch 404 and forward to error handler
