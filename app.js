@@ -29,7 +29,7 @@ app.use(session({
   store: sessionStore,
   cookie: { maxAge: 600000 },
   resave: false,
-  rolling: true;
+  rolling: true,
   saveUninitialized: false
 }))
 app.use(passport.initialize());
