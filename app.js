@@ -27,7 +27,7 @@ app.use(express.static('../maker-access-system-frontend/build'));
 app.use(session({
   secret: config.get('systemConfig.sessionSecret'),
   store: sessionStore,
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 0 * 12 * 60 * 60 * 1000 },
   resave: false,
   saveUninitialized: false
 }))
