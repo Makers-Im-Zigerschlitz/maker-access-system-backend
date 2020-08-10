@@ -27,8 +27,9 @@ app.use(express.static('../maker-access-system-frontend/build'));
 app.use(session({
   secret: config.get('systemConfig.sessionSecret'),
   store: sessionStore,
-  cookie: { maxAge: 0 * 12 * 60 * 60 * 1000 },
+  cookie: { maxAge: 600000 },
   resave: false,
+  rolling: true;
   saveUninitialized: false
 }))
 app.use(passport.initialize());
