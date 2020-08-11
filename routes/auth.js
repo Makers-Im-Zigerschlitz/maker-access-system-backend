@@ -57,7 +57,7 @@ router.post('/dologin', function(req, res, next) {
 router.post('/dologout', function(req, res){
   if (req.isAuthenticated()) {
     req.logout();
-    res.send({successful: false});
+    res.send({successful: true});
   }
   else {
     res.send(401);
