@@ -54,6 +54,11 @@ router.post('/dologin', function(req, res, next) {
   })(req, res, next);
 });
 
+router.post('/dologout', function(req, res){
+  req.logout();
+  res.send(200);
+});
+
 router.get('/', function(req, res, next) {
   var authState =  {
     isAuthenticated: req.isAuthenticated(),
