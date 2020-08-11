@@ -8,6 +8,7 @@ is running on 'http://localhost:3000/'.
 Open endpoints require no Authentication.
 
 * [Authenticate](auth/post-dologin.md) : `POST /auth/dologin/`
+* [Logout](auth/post-dologout.md) : `POST /auth/dologout/`
 * [Get authentication state](auth/get.md) : `GET /auth/`
 
 ## Endpoints that require Authentication

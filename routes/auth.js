@@ -55,8 +55,13 @@ router.post('/dologin', function(req, res, next) {
 });
 
 router.post('/dologout', function(req, res){
-  req.logout();
-  res.send(200);
+  if (req.isAuthenticated()) {
+    req.logout();
+    res.send({successful: false});
+  }
+  else {
+    res.send(401);
+  }
 });
 
 router.get('/', function(req, res, next) {
