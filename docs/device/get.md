@@ -1,7 +1,6 @@
-# Show Current User
+# Show all devices
 
-Get the details of the currently Authenticated User along with basic
-subscription information.
+Get the details of all registered devices.
 
 **URL** : `/device`
 
