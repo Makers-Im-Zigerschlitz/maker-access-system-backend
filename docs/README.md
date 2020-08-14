@@ -23,3 +23,9 @@ session is provided with the request:
 
 * [Get user info](auth/me/get.md) : `GET /auth/me/`
 * [Set password](auth/me/post-setpass.md) : `POST /auth/me/setpass`
+
+### Device related
+
+You have multiple options to get device information
+
+* [List all devices](device/get.md) : `GET /device`
