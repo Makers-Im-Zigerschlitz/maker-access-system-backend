@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
       query = "SELECT * FROM tblUsers;";
     }
     else {
-      query = "SELECT `Firstname`, `Lastname`, `Mail` FROM tblUsers;";
+      query = "SELECT `uid`, `Firstname`, `Lastname`, `Mail` FROM tblUsers;";
     }
     sqlconn.query(
       query,

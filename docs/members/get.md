@@ -21,6 +21,7 @@ The response is dependent from the userlevel of the current logged in user. User
 ```json
 [
   {
+      "uid": 0,
       "Firstname": null,
       "Lastname": null,
       "Mail": ""
