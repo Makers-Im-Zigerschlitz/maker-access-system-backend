@@ -1,7 +1,7 @@
 # API Documentation
 
 Where full URLs are provided in responses they will be rendered as if service
-is running on 'http://localhost:3000/'.
+is running on 'http://localhost:3000/api'.
 
 ## Open Endpoints
 
@@ -29,3 +29,9 @@ session is provided with the request:
 You have multiple options to get device information
 
 * [List all devices](device/get.md) : `GET /device`
+
+### Member related
+
+You have multiple options to get device information
+
+* [List all members](members/get.md) : `GET /members`

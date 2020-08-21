@@ -35,7 +35,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', indexRouter);
+app.use('/api', indexRouter);
 
 //Respond to all unknown Routes with React, in case the routes are from the Frontend
 app.get('*', (req,res) =>{
